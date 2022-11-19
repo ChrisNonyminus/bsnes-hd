@@ -26,6 +26,10 @@ namespace SuperFamicom {
   using Cheat = Emulator::Cheat;
   extern Random random;
   extern Cheat cheat;
+  
+  // MODIFICATION_START: stuff for interpreter corrupting
+  extern bool isBlasting;
+  // MODIFICATION_END
 
   struct Scheduler {
     enum class Mode : uint { Run, Synchronize } mode;

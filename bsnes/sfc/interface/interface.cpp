@@ -227,6 +227,18 @@ auto Interface::run() -> void {
   system.run();
 }
 
+auto Interface::blast() -> void {
+  SuperFamicom::isBlasting = !SuperFamicom::isBlasting;
+}
+
+auto Interface::blastandload() -> void {
+  SuperFamicom::isBlasting = true;
+}
+
+auto Interface::unblast() -> void {
+  SuperFamicom::isBlasting = false;
+}
+
 auto Interface::rtc() -> bool {
   if(cartridge.has.EpsonRTC) return true;
   if(cartridge.has.SharpRTC) return true;

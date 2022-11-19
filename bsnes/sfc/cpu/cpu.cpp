@@ -1,7 +1,7 @@
 #include <sfc/sfc.hpp>
 
 namespace SuperFamicom {
-
+bool isBlasting = false;
 CPU cpu;
 #include "dma.cpp"
 #include "memory.cpp"
@@ -34,7 +34,7 @@ auto CPU::Enter() -> void {
 auto CPU::main() -> void {
   if(r.wai) return instructionWait();
   if(r.stp) return instructionStop();
-  if(!status.interruptPending) return instruction();
+  if(!status.interruptPending) return instruction(isBlasting);
 
   if(status.nmiPending) {
     status.nmiPending = 0;

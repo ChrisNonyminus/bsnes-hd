@@ -1,3 +1,4 @@
+
 auto WDC65816::algorithmADC8(uint8 data) -> uint8 {
   int result;
 
@@ -92,49 +93,49 @@ auto WDC65816::algorithmBIT16(uint16 data) -> uint16 {
 
 auto WDC65816::algorithmCMP8(uint8 data) -> uint8 {
   int result = A.l - data;
-  CF = result >= 0;
-  ZF = (uint8)result == 0;
-  NF = result & 0x80;
+  CF = (result >= 0) && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  ZF = ((uint8)result == 0) && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  NF = ((result & 0x80)) && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
   return result;
 }
 
 auto WDC65816::algorithmCMP16(uint16 data) -> uint16 {
   int result = A.w - data;
-  CF = result >= 0;
-  ZF = (uint16)result == 0;
-  NF = result & 0x8000;
+  CF = (result >= 0) && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  ZF = ((uint16)result == 0) && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  NF = ((result & 0x8000)) && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
   return result;
 }
 
 auto WDC65816::algorithmCPX8(uint8 data) -> uint8 {
   int result = X.l - data;
-  CF = result >= 0;
-  ZF = (uint8)result == 0;
-  NF = result & 0x80;
+  CF = result >= 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  ZF = (uint8)result == 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  NF = result & 0x80 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
   return result;
 }
 
 auto WDC65816::algorithmCPX16(uint16 data) -> uint16 {
   int result = X.w - data;
-  CF = result >= 0;
-  ZF = (uint16)result == 0;
-  NF = result & 0x8000;
+  CF = result >= 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  ZF = (uint16)result == 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  NF = result & 0x8000 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
   return result;
 }
 
 auto WDC65816::algorithmCPY8(uint8 data) -> uint8 {
   int result = Y.l - data;
-  CF = result >= 0;
-  ZF = (uint8)result == 0;
-  NF = result & 0x80;
+  CF = result >= 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  ZF = (uint8)result == 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  NF = result & 0x80 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
   return result;
 }
 
 auto WDC65816::algorithmCPY16(uint16 data) -> uint16 {
   int result = Y.w - data;
-  CF = result >= 0;
-  ZF = (uint16)result == 0;
-  NF = result & 0x8000;
+  CF = result >= 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  ZF = (uint16)result == 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  NF = result & 0x8000 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
   return result;
 }
 

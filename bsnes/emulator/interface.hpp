@@ -76,6 +76,12 @@ struct Interface {
   virtual auto reset() -> void {}
   virtual auto run() -> void {}
 
+  // MODIFICATION_START: corruptions
+  virtual auto blast() -> void {}
+  virtual auto blastandload() -> void {}
+  virtual auto unblast() -> void {}
+  // MODIFICATION_END
+
   //time functions
   virtual auto rtc() -> bool { return false; }
   virtual auto synchronize(uint64 timestamp = 0) -> void {}

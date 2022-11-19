@@ -1,5 +1,13 @@
 #include <processor/processor.hpp>
 #include "spc700.hpp"
+// MODIFICATION_START: use corruption externs
+
+namespace SuperFamicom {
+  extern bool isBlasting;
+}
+
+
+// MODIFICATION_END
 
 namespace Processor {
 

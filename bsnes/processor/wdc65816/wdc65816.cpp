@@ -1,6 +1,13 @@
 #include <processor/processor.hpp>
 #include "wdc65816.hpp"
+// MODIFICATION_START: use corruption externs
 
+namespace SuperFamicom {
+  extern bool isBlasting;
+}
+
+
+// MODIFICATION_END
 namespace Processor {
 
 #include "registers.hpp"

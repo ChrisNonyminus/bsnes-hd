@@ -223,7 +223,7 @@ struct WDC65816 {
   auto instructionPushEffectiveRelativeAddress() -> void;
 
   //instruction.cpp
-  auto instruction() -> void;
+  auto instruction(bool isBlasting = false) -> void;
 
   //serialization.cpp
   auto serialize(serializer&) -> void;

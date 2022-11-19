@@ -59,6 +59,15 @@ auto InputManager::bindHotkeys() -> void {
     program.loadState({"Quick/Slot ", stateSlot});
   }));
 
+  hotkeys.append(InputHotkey("Toggle Blast").onPress([&]{
+    emulator->blast();
+  }));
+
+  hotkeys.append(InputHotkey("Load and Blast State").onPress([&]{
+    program.loadState({"Quick/Slot ", stateSlot});
+    emulator->blastandload();
+  }));
+
   hotkeys.append(InputHotkey("Load Undo State").onPress([&] {
     program.loadState("Quick/Undo");
   }));

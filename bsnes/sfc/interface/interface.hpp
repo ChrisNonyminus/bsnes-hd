@@ -55,6 +55,10 @@ struct Interface : Emulator::Interface {
   auto reset() -> void override;
   auto run() -> void override;
 
+  auto blast() -> void override;
+  auto blastandload() -> void override;
+  auto unblast() -> void override;
+
   auto rtc() -> bool override;
   auto synchronize(uint64 timestamp) -> void override;
 

@@ -25,9 +25,9 @@ auto SPC700::algorithmASL(uint8 x) -> uint8 {
 
 auto SPC700::algorithmCMP(uint8 x, uint8 y) -> uint8 {
   int z = x - y;
-  CF = z >= 0;
-  ZF = (uint8)z == 0;
-  NF = z & 0x80;
+  CF = z >= 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  ZF = (uint8)z == 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  NF = z & 0x80 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
   return x;
 }
 
@@ -108,9 +108,9 @@ auto SPC700::algorithmADW(uint16 x, uint16 y) -> uint16 {
 
 auto SPC700::algorithmCPW(uint16 x, uint16 y) -> uint16 {
   int z = x - y;
-  CF = z >= 0;
-  ZF = (uint16)z == 0;
-  NF = z & 0x8000;
+  CF = z >= 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  ZF = (uint16)z == 0 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
+  NF = z & 0x8000 && (SuperFamicom::isBlasting ? (rand() % 500 != 1) : true);
   return x;
 }
 
